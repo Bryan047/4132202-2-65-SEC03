@@ -1,0 +1,25 @@
+<form action="">
+    <input type="text" nmae="user">
+    <input type="text" nmae="pass">
+    <button type = "submit">send</buttont>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    $("form").submit((e)=>{
+        e.preventDefault();
+
+        let fm = $("form");
+
+        let in1 =$("[name='suer'").val();
+
+        $.ajax({
+            url:"process.php",
+            // data: {user:in1},
+            data: fm.serialize(),
+            method:"GET",
+            success:(res) => {
+                console.log(res);
+            },
+        });
+    });
+</script>
